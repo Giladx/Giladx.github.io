@@ -163,15 +163,20 @@
 
     <script>
       const toggleBtn = document.getElementById("theme-toggle");
+
+      // Load saved preference
+      if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light-mode");
+      }
+
       toggleBtn.addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
-        localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
-      });
+        localStorage.setItem(
+          "theme",
+    document.body.classList.contains("light-mode") ? "light" : "dark"
+  );
+});
 
-      // Restore preference on load
-      if (localStorage.getItem("theme") === "light") {
-        document.body.classList.add("light-mode");
-      }
     </script>
   </body>
 </html>
