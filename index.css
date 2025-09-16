@@ -14,7 +14,7 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #090909;
+  background-color: var(--dl-color-gray-white);
 }
 .home-col-2 {
   flex: 0 0 auto;
@@ -24,7 +24,7 @@
   flex-direction: column;
 }
 .home-text {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 5em;
   margin-top: var(--dl-space-space-halfunit);
@@ -36,7 +36,7 @@
   text-decoration: none;
 }
 .home-text03 {
-  color: #ffffff;
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 5em;
   margin-top: var(--dl-space-space-halfunit);
@@ -63,7 +63,7 @@
   border-radius: 50%;
 }
 .home-text06 {
-  color: #ffffff;
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 5em;
   margin-top: var(--dl-space-space-halfunit);
@@ -82,7 +82,7 @@
   flex-direction: column;
 }
 .home-text09 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 3em;
   margin-top: var(--dl-space-space-halfunit);
@@ -110,10 +110,10 @@
   text-decoration: none;
 }
 .home-text13 {
-  color: #ffffff;
+  color: var(--dl-color-gray-black);
 }
 .home-text15 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 4vw;
   margin-top: var(--dl-space-space-halfunit);
@@ -131,7 +131,7 @@
   flex-direction: column;
 }
 .home-text18 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 3em;
   margin-top: var(--dl-space-space-halfunit);
@@ -140,7 +140,7 @@
   margin-bottom: var(--dl-space-space-halfunit);
 }
 .home-text21 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 4vw;
   margin-top: .2em;
@@ -158,14 +158,14 @@
   flex-direction: column;
 }
 .home-text24 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 3em;
   font-family: Khand;
   font-weight: 500;
 }
 .home-text27 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 4vw;
   margin-top: .2em;
@@ -183,14 +183,14 @@
   flex-direction: column;
 }
 .home-text30 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 3em;
   font-family: Khand;
   font-weight: 500;
 }
 .home-text33 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 4vw;
   margin-top: .2em;
@@ -208,14 +208,14 @@
   flex-direction: column;
 }
 .home-text36 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 3em;
   font-family: Khand;
   font-weight: 500;
 }
 .home-text39 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 4vw;
   margin-top: .2em;
@@ -233,7 +233,7 @@
   flex-direction: column;
 }
 .home-text42 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 3em;
   font-family: Khand;
@@ -267,7 +267,7 @@
   flex-direction: column;
 }
 .home-text45 {
-  color: rgb(255, 255, 255);
+  color: var(--dl-color-gray-black);
   width: 100%;
   font-size: 3em;
   font-family: Khand;
@@ -309,7 +309,7 @@
     padding-bottom: var(--dl-space-space-oneandhalfunits);
   }
   .home-text06 {
-    color: rgb(255, 255, 255);
+    color: var(--dl-color-gray-black);
     font-size: 3em;
     font-family: Khand;
     font-weight: 700;
@@ -318,7 +318,7 @@
     text-decoration: none;
   }
   .home-text09 {
-    color: rgb(255, 255, 255);
+    color: var(--dl-color-gray-black);
     font-size: 2em;
     font-family: Khand;
     font-weight: 500;
