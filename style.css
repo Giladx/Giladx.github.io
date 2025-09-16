@@ -12,8 +12,8 @@
   --dl-color-danger-300: #A22020;
   --dl-color-danger-500: #BF2626;
   --dl-color-danger-700: #E14747;
-  --dl-color-gray-black: #FFFFFF;
-  --dl-color-gray-white: #111111;
+  --dl-color-gray-black: #000000;
+  --dl-color-gray-white: #FFFFFF;
   --dl-size-size-medium: 96px;
   --dl-size-size-xlarge: 192px;
   --dl-size-size-xsmall: 16px;
@@ -39,12 +39,6 @@
   --dl-space-space-threeunits: 48px;
   --dl-space-space-oneandhalfunits: 24px;
 }
-
-body.light-mode {
-  --dl-color-gray-black: #000000; /* text */
-  --dl-color-gray-white: #FFFFFF; /* background */
-}
-
 .button {
   color: var(--dl-color-gray-black);
   display: inline-block;
