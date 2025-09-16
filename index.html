@@ -14,55 +14,97 @@
     <meta property="twitter:card" content="summary_large_image" />
 
     <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+      html { line-height: 1.15; }
+      body { margin: 0; }
+      * { box-sizing: border-box; border-width: 0; border-style: solid; }
+      p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption { margin: 0; padding: 0; }
+      button { background-color: transparent; cursor: pointer; }
+      button,input,optgroup,select,textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; }
+      button,select { text-transform: none; }
+      a { color: inherit; text-decoration: inherit; }
+      img { display: block; }
+      html { scroll-behavior: smooth; }
     </style>
+
     <style data-tag="default-style-sheet">
       @import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');
-      html {
-        font-family: Inter;
-        font-size: 16px;
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+      :root {
+        /* Dark mode defaults */
+        --dl-color-gray-black: #ffffff; /* text */
+        --dl-color-gray-white: #111111; /* background */
       }
 
       body {
+        font-family: Inter, sans-serif;
         font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
+        line-height: 1.5;
         color: var(--dl-color-gray-black);
         background-color: var(--dl-color-gray-white);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
 
+      /* Light mode overrides */
+      body.light-mode {
+        --dl-color-gray-black: #000000;
+        --dl-color-gray-white: #ffffff;
+      }
+
+      /* Toggle button */
+      .theme-toggle {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--dl-color-gray-white);
+        color: var(--dl-color-gray-black);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        transition: background 0.3s ease, color 0.3s ease;
+        z-index: 9999;
+      }
+
+      .theme-toggle .icon {
+        position: absolute;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      /* Show moon in dark mode */
+      body:not(.light-mode) .theme-toggle .sun {
+        opacity: 0;
+        transform: scale(0.5) rotate(-90deg);
+      }
+      body:not(.light-mode) .theme-toggle .moon {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+
+      /* Show sun in light mode */
+      body.light-mode .theme-toggle .sun {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+      body.light-mode .theme-toggle .moon {
+        opacity: 0;
+        transform: scale(0.5) rotate(90deg);
       }
     </style>
-    <!--<link
-      rel="stylesheet"
-      href="https://unpkg.com/animate.css@4.1.1/animate.css"
-    />-->
-    <link
-      rel="shortcut icon"
-      href="public/2099419-200h.webp"
-      type="icon/png"
-      sizes="32x32"
-    />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <noscript>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&amp;display=swap"
-      data-tag="font"
-    />
-    </noscript>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
-    />
   </head>
+
   <body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <span class="icon sun">☀️</span>
+      <span class="icon moon">🌙</span>
+    </button>
+
     <link rel="stylesheet" href="./style.css" />
     <div>
       <link href="./index.css" rel="stylesheet" />
@@ -70,126 +112,65 @@
       <div class="home-container">
         <div class="home-main">
           <div class="home-col-2">
-            <span class="home-text">
-              <span>Hi</span>
-              <br />
-            </span>
-            <span class="home-text03">
-              <span>I am Gilad Levi</span>
-              <br />
-            </span>
+            <span class="home-text"><span>Hi</span><br /></span>
+            <span class="home-text03"><span>I am Gilad Levi</span><br /></span>
           </div>
           <div class="home-col-3">
-            <img
-              alt="Gilad Levi"
-              src="public/2099419-200h1.webp"
-              width="150"
-              height="150"
-              loading="lazy"
-              class="home-image"
-            />
+            <img alt="Gilad Levi" src="public/2099419-200h1.webp" width="150" height="150" loading="lazy" class="home-image"/>
           </div>
-          <span class="home-text06">
-            <span>Software &amp; Web Developer</span>
-            <br />
-          </span>
+          <span class="home-text06"><span>Software &amp; Web Developer</span><br /></span>
           <div class="home-col-5">
-            <span class="home-text09">
-              <span>Experience: 25y +</span>
-              <br />
-            </span>
+            <span class="home-text09"><span>Experience: 25y +</span><br /></span>
           </div>
           <div class="home-col-6">
-            <span class="home-text12">
-              <span class="home-text13">Programming Languages:</span>
-              <br />
-            </span>
-            <span class="home-text15">
-              <span>C, C++, Ruby, Python, Javascript, PHP, Go.</span>
-              <br />
-            </span>
+            <span class="home-text12"><span class="home-text13">Programming Languages:</span><br /></span>
+            <span class="home-text15"><span>C, C++, Ruby, Python, Javascript, PHP, Go.</span><br /></span>
           </div>
           <div class="home-col-7">
-            <span class="home-text18">
-              <span>Web UI &amp; API Tech:</span>
-              <br class="H5" />
-            </span>
-            <span class="home-text21">
-              <span>HTML5, CSS3, SASS, LESS,&nbsp;Tailwind, GraphQL.</span>
-              <br />
-            </span>
+            <span class="home-text18"><span>Web UI &amp; API Tech:</span><br class="H5" /></span>
+            <span class="home-text21"><span>HTML5, CSS3, SASS, LESS,&nbsp;Tailwind, GraphQL.</span><br /></span>
           </div>
           <div class="home-col-8">
-            <span class="home-text24">
-              <span>Web Frameworks:</span>
-              <br class="H5" />
-            </span>
-            <span class="home-text27">
-              <span>
-                Dejango, Ruby on Rails, Vue.js, Express.js, Backbone.js,
-                Next.js, Angular.
-              </span>
-              <br />
-            </span>
+            <span class="home-text24"><span>Web Frameworks:</span><br class="H5" /></span>
+            <span class="home-text27"><span>Dejango, Ruby on Rails, Vue.js, Express.js, Backbone.js, Next.js, Angular.</span><br /></span>
           </div>
           <div class="home-col-9">
-            <span class="home-text30">
-              <span>C++ Frameworks:</span>
-              <br class="H5" />
-            </span>
-            <span class="home-text33">
-              <span>Openframeworks, POCO, ASIO.</span>
-              <br />
-            </span>
+            <span class="home-text30"><span>C++ Frameworks:</span><br class="H5" /></span>
+            <span class="home-text33"><span>Openframeworks, POCO, ASIO.</span><br /></span>
           </div>
           <div class="home-col-10">
-            <span class="home-text36">
-              <span>Libraries:</span>
-              <br />
-            </span>
-            <span class="home-text39">
-              <span>Socket.io, Node.js, Threejs, GSAP, Ionic.</span>
-              <br />
-            </span>
+            <span class="home-text36"><span>Libraries:</span><br /></span>
+            <span class="home-text39"><span>Socket.io, Node.js, Threejs, GSAP, Ionic.</span><br /></span>
           </div>
           <div class="home-col-11">
-            <span class="home-text42">
-              <span>Github</span>
-              <br />
-            </span>
+            <span class="home-text42"><span>Github</span><br /></span>
           </div>
           <div class="home-col-12">
-            <a
-              href="https://github.com/Giladx"
-              target="_blank"
-              rel="noreferrer noopener"
-              class="home-link"
-            >
-              <img
-                alt="Gilad Levi Github"
-                src="public/github-200h.webp"
-                width="80"
-                height="80"
-                loading="lazy"
-                class="home-image1"
-              />
+            <a href="https://github.com/Giladx" target="_blank" rel="noreferrer noopener" class="home-link">
+              <img alt="Gilad Levi Github" src="public/github-200h.webp" width="80" height="80" loading="lazy" class="home-image1"/>
             </a>
           </div>
           <div class="home-col-13">
-            <span class="home-text45">
-              <span>Email</span>
-              <br />
-            </span>
-            <a
-              href="mailto:gilad@011.ninja?subject=New Email From Bio"
-              class="home-text48 H5"
-            >
-              <span>gilad@011.ninja</span>
-              <br />
+            <span class="home-text45"><span>Email</span><br /></span>
+            <a href="mailto:gilad@011.ninja?subject=New Email From Bio" class="home-text48 H5">
+              <span>gilad@011.ninja</span><br />
             </a>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      const toggleBtn = document.getElementById("theme-toggle");
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
+      });
+
+      // Restore preference on load
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    </script>
   </body>
 </html>
